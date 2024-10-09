@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts Api",
-    "desciption": "Contacts Api",
+    "title": "Log Book Api",
+    "desciption": "Log Book Api",
     "version": "1.0.0",
     "description": ""
   },
