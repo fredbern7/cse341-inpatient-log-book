@@ -1,0 +1,167 @@
+[
+    {
+        "hospitalNumber": "H123456",
+        "lastName": "Smith",
+        "firstName": "John",
+        "middleName": "A",
+        "admissionDate": "2023-08-15",
+        "chiefComplaint": "Chest Pain",
+        "dischargeDate": "2023-08-20",
+        "dischargeDiagnose": "Angina",
+        "dateAppointment": "2023-09-01"
+    },
+    {
+        "hospitalNumber": "H234567",
+        "lastName": "Doe",
+        "firstName": "Jane",
+        "middleName": "B",
+        "admissionDate": "2023-07-10",
+        "chiefComplaint": "Fever",
+        "dischargeDate": "2023-07-15",
+        "dischargeDiagnose": "Viral Infection",
+        "dateAppointment": "2023-08-05"
+    },
+    {
+        "hospitalNumber": "H345678",
+        "lastName": "Johnson",
+        "firstName": "Emily",
+        "middleName": "C",
+        "admissionDate": "2023-06-20",
+        "chiefComplaint": "Broken Arm",
+        "dischargeDate": "2023-06-25",
+        "dischargeDiagnose": "Fracture",
+        "dateAppointment": "2023-07-10"
+    },
+    {
+        "hospitalNumber": "H456789",
+        "lastName": "Williams",
+        "firstName": "Michael",
+        "middleName": "D",
+        "admissionDate": "2023-09-01",
+        "chiefComplaint": "Headache",
+        "dischargeDate": "2023-09-05",
+        "dischargeDiagnose": "Migraine",
+        "dateAppointment": "2023-09-20"
+    },
+    {
+        "hospitalNumber": "H567890",
+        "lastName": "Brown",
+        "firstName": "Jessica",
+        "middleName": "E",
+        "admissionDate": "2023-08-05",
+        "chiefComplaint": "Back Pain",
+        "dischargeDate": "2023-08-10",
+        "dischargeDiagnose": "Muscle Strain",
+        "dateAppointment": "2023-09-15"
+    },
+    {
+        "hospitalNumber": "H678901",
+        "lastName": "Jones",
+        "firstName": "Daniel",
+        "middleName": "F",
+        "admissionDate": "2023-05-10",
+        "chiefComplaint": "Shortness of Breath",
+        "dischargeDate": "2023-05-15",
+        "dischargeDiagnose": "Asthma",
+        "dateAppointment": "2023-06-01"
+    },
+    {
+        "hospitalNumber": "H789012",
+        "lastName": "Garcia",
+        "firstName": "Sophia",
+        "middleName": "G",
+        "admissionDate": "2023-08-20",
+        "chiefComplaint": "Nausea",
+        "dischargeDate": "2023-08-25",
+        "dischargeDiagnose": "Gastroenteritis",
+        "dateAppointment": "2023-09-10"
+    },
+    {
+        "hospitalNumber": "H890123",
+        "lastName": "Martinez",
+        "firstName": "David",
+        "middleName": "H",
+        "admissionDate": "2023-04-12",
+        "chiefComplaint": "Allergic Reaction",
+        "dischargeDate": "2023-04-18",
+        "dischargeDiagnose": "Allergy",
+        "dateAppointment": "2023-05-05"
+    },
+    {
+        "hospitalNumber": "H901234",
+        "lastName": "Hernandez",
+        "firstName": "Olivia",
+        "middleName": "I",
+        "admissionDate": "2023-09-15",
+        "chiefComplaint": "Rash",
+        "dischargeDate": "2023-09-20",
+        "dischargeDiagnose": "Contact Dermatitis",
+        "dateAppointment": "2023-09-30"
+    },
+    {
+        "hospitalNumber": "H012345",
+        "lastName": "Lopez",
+        "firstName": "Lucas",
+        "middleName": "J",
+        "admissionDate": "2023-07-25",
+        "chiefComplaint": "Severe Cough",
+        "dischargeDate": "2023-07-30",
+        "dischargeDiagnose": "Bronchitis",
+        "dateAppointment": "2023-08-15"
+    },
+    {
+        "hospitalNumber": "H123457",
+        "lastName": "Wilson",
+        "firstName": "Mia",
+        "middleName": "K",
+        "admissionDate": "2023-06-05",
+        "chiefComplaint": "Fatigue",
+        "dischargeDate": "2023-06-10",
+        "dischargeDiagnose": "Anemia",
+        "dateAppointment": "2023-06-25"
+    },
+    {
+        "hospitalNumber": "H234568",
+        "lastName": "Anderson",
+        "firstName": "Ethan",
+        "middleName": "L",
+        "admissionDate": "2023-08-01",
+        "chiefComplaint": "Knee Pain",
+        "dischargeDate": "2023-08-05",
+        "dischargeDiagnose": "Tendonitis",
+        "dateAppointment": "2023-08-25"
+    },
+    {
+        "hospitalNumber": "H345679",
+        "lastName": "Thomas",
+        "firstName": "Ava",
+        "middleName": "M",
+        "admissionDate": "2023-05-25",
+        "chiefComplaint": "Abdominal Pain",
+        "dischargeDate": "2023-05-30",
+        "dischargeDiagnose": "Appendicitis",
+        "dateAppointment": "2023-06-15"
+    },
+    {
+        "hospitalNumber": "H456780",
+        "lastName": "Taylor",
+        "firstName": "James",
+        "middleName": "N",
+        "admissionDate": "2023-09-10",
+        "chiefComplaint": "Skin Infection",
+        "dischargeDate": "2023-09-15",
+        "dischargeDiagnose": "Cellulitis",
+        "dateAppointment": "2023-09-25"
+    },
+    {
+        "hospitalNumber": "H567891",
+        "lastName": "Moore",
+        "firstName": "Isabella",
+        "middleName": "O",
+        "admissionDate": "2023-07-15",
+        "chiefComplaint": "Joint Pain",
+        "dischargeDate": "2023-07-20",
+        "dischargeDiagnose": "Arthritis",
+        "dateAppointment": "2023-08-10"
+    }
+]

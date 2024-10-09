@@ -1,0 +1,47 @@
+[
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "middleName": "A",
+    "email": "john.doe@gmail.com",
+    "phone": "320-1234",
+    "username": "john.doe",
+    "password": "password1"
+},
+{
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "middleName": "B",
+    "email": "jane.smith@gmail.com",
+    "phone": "320-5678",
+    "username": "jane.smith",
+    "password": "password2"
+},
+{
+    "firstName": "James",
+    "lastName": "Johnson",
+    "middleName": "C",
+    "email": "james.johnson@gmail.com",
+    "phone": "320-9101",
+    "username": "james.johnson",
+    "password": "password3"
+},
+{
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "middleName": "D",
+    "email": "emily.brown@gmail.com",
+    "phone": "320-1121",
+    "username": "emily.brown",
+    "password": "password4"
+},
+{
+    "firstName": "Michael",
+    "lastName": "Davis",
+    "middleName": "E",
+    "email": "michael.davis@gmail.com",
+    "phone": "320-3141",
+    "username": "michael.davis",
+    "password": "password5"
+}
+]

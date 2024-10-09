@@ -1,0 +1,39 @@
+{
+  "name": "cse341-inpatient-log-book",
+  "version": "1.0.0",
+  "description": "Inpatient Log Book",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredbern7/cse341-inpatient-log-book.git"
+  },
+  "author": "Berny Fred",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fredbern7/cse341-inpatient-log-book/issues"
+  },
+  "homepage": "https://github.com/fredbern7/cse341-inpatient-log-book#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.18.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.21.0",
+    "mongodb": "^4.4.0",
+    "swagger-ui-express": "^4.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^29.7.0",
+    "jslint": "^0.12.1",
+    "nodemon": "^3.1.7",
+    "prettier": "^2.5.1",
+    "swagger-autogen": "^2.19.0",
+    "validatorjs": "^3.22.1"
+  }
+}

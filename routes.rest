@@ -1,0 +1,85 @@
+// LOCALHOST
+### Get all Logs
+GET http://localhost:3002/medical-ward
+
+
+### Get Log by id
+GET http://localhost:3002/medical-ward/6702386df14e79609fa25696
+
+
+### Create Log
+POST http://localhost:3002/medical-ward HTTP/1.1
+content-type: application/json
+
+{
+  "hospitalNumber": "H123456",
+  "lastName": "Jane",
+  "firstName": "John",
+  "middleName": "A",
+  "admissionDate": "2023-08-15",
+  "chiefComplaint": "Chest Pain",
+  "dischargeDate": "2023-08-20",
+  "dischargeDiagnose": "Angina",
+  "dateAppointment": "2023-09-01"
+}
+
+
+### PUT Log
+PUT http://localhost:3002/medical-ward/670238118eed247538a6ea39 HTTP/1.1
+content-type: application/json
+
+{
+  "hospitalNumber": "H123456",
+  "lastName": "Jane",
+  "firstName": "John",
+  "middleName": "A",
+  "admissionDate": "2023-08-15",
+  "chiefComplaint": "Chest Pain",
+  "dischargeDate": "2023-08-20",
+  "dischargeDiagnose": "Angina",
+  "dateAppointment": "2023-09-01"
+}
+
+### DELETE Log
+DELETE http://localhost:3002/medical-ward/6702386df14e79609fa25696 HTTP/1.1
+
+
+
+### Get all users
+GET http://localhost:3002/user
+
+
+### Get a specific user
+GET http://localhost:3002/user/6704f6c349fc60c2a87d58c1
+
+
+### Create a new user
+POST http://localhost:3002/user
+Content-Type: application/json
+
+{
+  "firstName": "Mani",
+  "lastName": "Doe",
+  "middleName": "A",
+  "email": "don.doe@gmail.com",
+  "phone": "320-1234",
+  "username": "mani.doe",
+  "password": "Password@3kd"
+}
+
+### Update User
+PUT http://localhost:3002/user/6706000578665be149814aa2
+Content-Type: application/json
+
+{
+  "firstName": "Mani",
+  "lastName": "Doe",
+  "middleName": "A",
+  "email": "mani.doe@gmail.com",
+  "phone": "320-1234",
+  "username": "mani.doe",
+  "password": "Password!244"
+}
+
+### Delete a user
+DELETE http://localhost:3002/user/john.doe
