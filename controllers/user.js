@@ -3,80 +3,101 @@ const bcrypt = require('bcrypt');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-  const result = await mongodb.getDb().db().collection('user').find();
-  result.toArray().then((lists) => {
+  try {
+    const result = await mongodb.getDb().db().collection('user').find();
+    const lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
-  });
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
 };
 
 const getOne = async (req, res) => {
-  const userId = new ObjectId(req.params.id)
-  const result = await mongodb.getDb().db().collection('user').find({ _id: userId });
-  result.toArray().then((lists) => {
+  try {
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db().collection('user').find({ _id: userId });
+    const lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
-  });
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
 };
 
 const createUser = async (req, res) => {
-  const hashedPassword = await bcrypt.hash(req.body.password, 10);
-  const user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    middleName: req.body.middleName,
-    email: req.body.email,
-    phone: req.body.phone,
-    username: req.body.username,
-    password: hashedPassword
-  };
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const user = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      middleName: req.body.middleName,
+      email: req.body.email,
+      phone: req.body.phone,
+      username: req.body.username,
+      password: hashedPassword
+    };
 
-  const response = await mongodb.getDb().db().collection('user').insertOne(user);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while creating a user.');
+    const response = await mongodb.getDb().db().collection('user').insertOne(user);
+    if (response.acknowledged) {
+      return res.status(201).json(response);
+    } else {
+      throw new Error('Failed to create user');
+    }
+  } catch (error) {
+    console.error('Error creating user:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 
 const updateUser = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  try {
+    const userId = new ObjectId(req.params.id);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-  const user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    middleName: req.body.middleName,
-    email: req.body.email,
-    phone: req.body.phone,
-    username: req.body.username,
-    password: hashedPassword 
-  };
+    const user = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      middleName: req.body.middleName,
+      email: req.body.email,
+      phone: req.body.phone,
+      username: req.body.username,
+      password: hashedPassword
+    };
 
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection('user')
-    .replaceOne({ _id: userId }, user);
-  console.log(response);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Errors while updating the user.');
+    const response = await mongodb.getDb().db().collection('user').replaceOne({ _id: userId }, user);
+    if (response.modifiedCount > 0) {
+      return res.status(204).send();
+    } else {
+      throw new Error('Failed to update user');
+    }
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 
 const deleteUser = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('user').deleteOne({ _id: userId }, true);
-  console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Errors wheh deleting user.');
+  try {
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db().collection('user').deleteOne({ _id: userId }, true);
+    if (response.deletedCount > 0) {
+      return res.status(204).send();
+    } else {
+      throw new Error('Failed to delete user');
+    }
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 
 module.exports = {
-  getAll, getOne, createUser, updateUser, deleteUser
-}
+  getAll,
+  getOne,
+  createUser,
+  updateUser,
+  deleteUser
+};
