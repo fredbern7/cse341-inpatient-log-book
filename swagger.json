@@ -6,7 +6,7 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "localhost:3002",
+  "host": "cse341-inpatient-log-book.onrender.com",
   "basePath": "/",
   "schemes": [
     "https",
