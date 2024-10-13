@@ -35,7 +35,6 @@ app
     origin: '*',
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
    }))
-
    .use("/", require("./routes/index.js"));
 
 passport.use(new GitHubStrategy( {
@@ -57,12 +56,12 @@ passport.deserializeUser(() => {
     done(null, user);
 });
 
-app.get('/', (req, res) => {
-    res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")
-});
 // app.get('/', (req, res) => {
-//     res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.firstName} ${req.session.user.lastName}` : "Logged Out");
+//     res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")
 // });
+app.get('/', (req, res) => {
+    res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.firstName} ${req.session.user.lastName}` : "Logged Out");
+});
 
 app.get('/github/callback', passport.authenticate('github', {
     failureRedirect: '/api-docs', session: false}
