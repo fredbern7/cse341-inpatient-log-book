@@ -221,7 +221,7 @@
         }
       }
     },
-    "/medical-ward/": {
+    "/medicalward/": {
       "get": {
         "description": "",
         "produces": [
@@ -292,7 +292,7 @@
         }
       }
     },
-    "/medical-ward/{id}": {
+    "/medicalward/{id}": {
       "get": {
         "description": "",
         "produces": [
