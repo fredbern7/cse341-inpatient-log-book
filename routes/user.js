@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { isAuthenticated }= require("../middlewares/authenticate");
+const { isAuthenticated } = require('../middlewares/authenticate');
 const check = require('../middlewares/validator');
 const isExist = require('../middlewares/duplicate')
 const user = require('../controllers/user');

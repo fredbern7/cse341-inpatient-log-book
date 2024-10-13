@@ -4,7 +4,7 @@ const doc = {
         title: 'Log Book Api',
         desciption: 'Log Book Api'
     },
-    host: 'cse341-inpatient-log-book.onrender.com',
+    host: 'localhost:3002',
     schemes: ['https', 'http']
 };
 
