@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { isAuthenticated } = require("../middlewares/authenticate");
+const usercheck = require("../middlewares/authenticate");
 const medicallog = require('../controllers/medical_ward');
 
-router.get('/', isAuthenticated, medicallog.getAll);
-router.get('/:id', isAuthenticated, medicallog.getOne);
-router.post('/', isAuthenticated, medicallog.createLog);
-router.put('/:id', isAuthenticated, medicallog.updateLog);
-router.delete('/:id', isAuthenticated, medicallog.deleteLog);
+router.get('/', usercheck.isAuthenticated, medicallog.getAll);
+router.get('/:id', usercheck.isAuthenticated, medicallog.getOne);
+router.post('/', usercheck.isAuthenticated, medicallog.createLog);
+router.put('/:id', usercheck.isAuthenticated, medicallog.updateLog);
+router.delete('/:id', usercheck.isAuthenticated, medicallog.deleteLog);
 
 module.exports = router;

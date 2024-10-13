@@ -28,7 +28,9 @@ const createLog = async (req, res) => {
     chiefComplaint: req.body.chiefComplaint,
     dischargeDate: req.body.dischargeDate,
     dischargeDiagnose: req.body.dischargeDiagnose,
-    dateAppointment: req.body.dateAppointment
+    dateAppointment: req.body.dateAppointment,
+    dateAppointment: req.body.dateAppointment,
+    createdBy: req.body.createdBy
   };
   const response = await mongodb.getDb().db().collection('medical-ward').insertOne(log);
   if (response.acknowledged) {
@@ -50,7 +52,8 @@ const updateLog = async (req, res) => {
     chiefComplaint: req.body.chiefComplaint,
     dischargeDate: req.body.dischargeDate,
     dischargeDiagnose: req.body.dischargeDiagnose,
-    dateAppointment: req.body.dateAppointment
+    dateAppointment: req.body.dateAppointment,
+    createdBy: req.body.createdBy
   };
 
   const response = await mongodb
