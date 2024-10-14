@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
-const mongoDB = require('./db/connection.js');
+const mongoDB = require('./data/database');
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app
@@ -18,12 +18,11 @@ app
     saveUninitialized: true,
    }))
    .use(passport.initialize())
-   .use(passport.session())
    .use((req, res, next) => {
-    res.setHeader("Access-Controll-Allow-Origin", "*");
+    res.setHeader("Accss-Controll-Allow-Origin", "*");
     res.setHeader(
         "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization"
+        "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Autorization"
     );
     res.setHeader(
         "Access-Control-Allow-Methods",
@@ -41,33 +40,31 @@ passport.use(new GitHubStrategy( {
     callbackURL: process.env.CALLBACK_URL
 },
 function(accessToken, refreshToken, profile, done) {
-  //User.findOrCreate({ githubId: profile.id}, function {err, user} {
     return done(null, profile);
-  //});
 }  
 ));
-
 
 passport.serializeUser((user, done) => {
     done(null, user);
 });
-passport.deserializeUser((user, done) => {
+passport.deserializeUser(() => {
     done(null, user);
 });
 
-app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
-
+app.get('/', (req, res) => {
+    res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")
+});
+// app.get('/', (req, res) => {
+//     res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.firstName} ${req.session.user.lastName}` : "Logged Out");
+// });
 
 app.get('/github/callback', passport.authenticate('github', {
-    failureRedirect: '/api-docs', session: false}),
-    (req, res) => {
+    failureRedirect: '/api-docs', session: false}
+    ), (req, res) => {
         req.session.user = req.user;
         res.redirect('/');
     });
-// app.use((err, req, res, next) => {
-//     console.error(err.stack);
-//     res.status(500).send('Something went wrong! Please try again later.');
-//   });
+
 mongoDB.initDb((err, mongoDB) => {
     if (err) {
         console.log(err);
