@@ -31,10 +31,8 @@ app
     );
     next();
    })
-   .use(cors({
-    origin: '*',
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-   }))
+   .use(cors({ methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
+   .use(cors({ origin: '*'}))
    .use("/", require("./routes/index.js"));
 
 passport.use(new GitHubStrategy( {
@@ -57,16 +55,12 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
-// app.get('/', (req, res) => {
-//     res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")
-// });
-app.get('/', (req, res) => {
-    res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.firstName} ${req.session.user.lastName}` : "Logged Out");
-});
+app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
+
 
 app.get('/github/callback', passport.authenticate('github', {
-    failureRedirect: '/api-docs', session: false}
-    ), (req, res) => {
+    failureRedirect: '/api-docs', session: false}),
+    (req, res) => {
         req.session.user = req.user;
         res.redirect('/');
     });
