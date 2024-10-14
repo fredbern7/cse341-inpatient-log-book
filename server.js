@@ -20,10 +20,10 @@ app
    .use(passport.initialize())
    .use(passport.session())
    .use((req, res, next) => {
-    res.setHeader("Accss-Controll-Allow-Origin", "*");
+    res.setHeader("Access-Controll-Allow-Origin", "*");
     res.setHeader(
         "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Autorization"
+        "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization"
     );
     res.setHeader(
         "Access-Control-Allow-Methods",
@@ -52,7 +52,7 @@ function(accessToken, refreshToken, profile, done) {
 passport.serializeUser((user, done) => {
     done(null, user);
 });
-passport.deserializeUser(() => {
+passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
@@ -69,7 +69,10 @@ app.get('/github/callback', passport.authenticate('github', {
         req.session.user = req.user;
         res.redirect('/');
     });
-
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong! Please try again later.');
+  });
 mongoDB.initDb((err, mongoDB) => {
     if (err) {
         console.log(err);
