@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
-const mongoDB = require('./data/database');
+const mongoDB = require('./db/connection.js');
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const app = express();
 
 app
