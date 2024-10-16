@@ -4,7 +4,7 @@ const doc = {
         title: 'Log Book Api',
         desciption: 'Log Book Api'
     },
-    host: 'localhost:3002',
+    host: 'localhost:3000',
     schemes: ['https', 'http']
 };
 
