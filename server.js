@@ -41,17 +41,34 @@ passport.deserializeUser((user, done) => {
 
 app.get('/', (req, res) => {
     if (req.session.user) {
-        const { displayName, username, emails, profileUrl } = req.session.user;
+        const {
+            displayName, 
+            username, 
+            emails, 
+            profileUrl, 
+            id, 
+            location, 
+            company, 
+            bio, 
+            photos 
+        } = req.session.user;
+
         res.send(`
-            Logged in as ${displayName || username}<br>
-            GitHub Username: ${username}<br>
-            Email: ${emails && emails.length ? emails[0].value : 'No email available'}<br>
-            Profile: <a href="${profileUrl}">${profileUrl}</a>
+            <p>Logged in as ${displayName || username}</p>
+            <p>GitHub Username: ${username}</p>
+            <p>Email: ${emails && emails.length ? emails[0].value : 'No email available'}</p>
+            <p>Profile: <a href="${profileUrl}">${profileUrl}</a></p>
+            <p>ID: ${id}</p>
+            <p>Location: ${location || 'Not provided'}</p>
+            <p>Company: ${company || 'Not provided'}</p>
+            <p>Bio: ${bio || 'No bio available'}</p>
+            <p><img src="${photos && photos.length ? photos[0].value : ''}" alt="Profile Picture" style="width:100px;height:100px;" /></p>
         `);
     } else {
         res.send("Logged Out");
     }
 });
+
 
 app.get('/auth/github/callback', (req, res, next) => {
     passport.authenticate('github', (err, user, info) => {
