@@ -40,7 +40,17 @@ passport.deserializeUser((user, done) => {
 });
 
 app.get('/', (req, res) => {
-    res.send(req.session.user ? `Logged in as ${req.session.user}` : "Logged Out");
+    if (req.session.user) {
+        const { displayName, username, emails, profileUrl } = req.session.user;
+        res.send(`
+            Logged in as ${displayName || username}<br>
+            GitHub Username: ${username}<br>
+            Email: ${emails && emails.length ? emails[0].value : 'No email available'}<br>
+            Profile: <a href="${profileUrl}">${profileUrl}</a>
+        `);
+    } else {
+        res.send("Logged Out");
+    }
 });
 
 app.get('/auth/github/callback', (req, res, next) => {
