@@ -40,7 +40,7 @@ passport.deserializeUser((user, done) => {
 });
 
 app.get('/', (req, res) => {
-    res.send(req.session.user ? `Logged in as ${req.session.user.displayName}` : "Logged Out");
+    res.send(req.session.user ? `Logged in as ${req.session.user}` : "Logged Out");
 });
 
 app.get('/auth/github/callback', (req, res, next) => {
