@@ -4,8 +4,8 @@ const doc = {
         title: 'Log Book Api',
         desciption: 'Log Book Api'
     },
-    host: 'localhost:3000',
-    schemes: ['https', 'http']
+    host: 'cse341-inpatient-log-book-1.onrender.com',
+    schemes: ['https']
 };
 
 const outputFile = 'swagger.json';
