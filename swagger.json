@@ -34,6 +34,9 @@
     },
     "/user/": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -51,6 +54,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -105,6 +111,9 @@
     },
     "/user/{id}": {
       "get": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -130,6 +139,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -188,6 +200,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -212,6 +227,9 @@
     },
     "/medicalward/": {
       "get": {
+        "tags": [
+          "Medical Ward"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -222,10 +240,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
+        "tags": [
+          "Medical Ward"
+        ],
         "description": "",
         "parameters": [
           {
@@ -280,6 +304,9 @@
     },
     "/medicalward/{id}": {
       "get": {
+        "tags": [
+          "Medical Ward"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -298,10 +325,19 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
+        "tags": [
+          "Medical Ward"
+        ],
         "description": "",
         "parameters": [
           {
@@ -360,6 +396,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Medical Ward"
+        ],
         "description": "",
         "parameters": [
           {

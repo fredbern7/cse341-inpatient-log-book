@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+  //#swagger.tags=['Users']
   try {
     const result = await mongodb.getDb().db().collection('user').find();
     const lists = await result.toArray();
@@ -15,6 +16,7 @@ const getAll = async (req, res) => {
 };
 
 const getOne = async (req, res) => {
+  //#swagger.tags=['Users']
   try {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db().collection('user').find({ _id: userId });
@@ -28,6 +30,7 @@ const getOne = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+  //#swagger.tags=['Users']
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = {
@@ -53,6 +56,7 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+  //#swagger.tags=['Users']
   try {
     const userId = new ObjectId(req.params.id);
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -80,6 +84,7 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+  //#swagger.tags=['Users']
   try {
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db().collection('user').deleteOne({ _id: userId }, true);
