@@ -44,15 +44,8 @@ app.get('/', (req, res) => {
         const {
             displayName, 
             username, 
-            emails, 
             profileUrl, 
-            id, 
-            location, 
-            company, 
-            bio, 
-            photos 
         } = req.session.user;
-
         res.send(`
             <p>Logged in as ${displayName || username}</p>
             <p>Profile: <a href="${profileUrl}">${profileUrl}</a></p>
