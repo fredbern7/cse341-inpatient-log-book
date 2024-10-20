@@ -55,14 +55,8 @@ app.get('/', (req, res) => {
 
         res.send(`
             <p>Logged in as ${displayName || username}</p>
-            <p>GitHub Username: ${username}</p>
-            <p>Email: ${emails && emails.length ? emails[0].value : 'No email available'}</p>
             <p>Profile: <a href="${profileUrl}">${profileUrl}</a></p>
             <p>ID: ${id}</p>
-            <p>Location: ${location || 'Not provided'}</p>
-            <p>Company: ${company || 'Not provided'}</p>
-            <p>Bio: ${bio || 'No bio available'}</p>
-            <p><img src="${photos && photos.length ? photos[0].value : ''}" alt="Profile Picture" style="width:100px;height:100px;" /></p>
         `);
     } else {
         res.send("Logged Out");
